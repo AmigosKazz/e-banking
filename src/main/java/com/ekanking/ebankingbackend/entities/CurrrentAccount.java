@@ -1,4 +1,11 @@
 package com.ekanking.ebankingbackend.entities;
 
-public class CurrrentAccount {
+import lombok.*;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@NonNull
+public class CurrrentAccount extends BankAccount {
+    private double overdraft;
 }
