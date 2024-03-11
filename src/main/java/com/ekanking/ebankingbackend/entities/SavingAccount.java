@@ -3,9 +3,8 @@ package com.ekanking.ebankingbackend.entities;
 import lombok.*;
 
 
-@Getter
-@Setter
-@ToString
+@EqualsAndHashCode(callSuper = true)
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SavingAccount extends BankAccount {
