@@ -1,16 +1,22 @@
 package com.ekanking.ebankingbackend.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
-@Data @NoArgsConstructor @AllArgsConstructor
+@Entity
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String email;
+
+    @OneToMany(mappedBy = "customer")
     private List<BankAccount> bankAccounts;
 }

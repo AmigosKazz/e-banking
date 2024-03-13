@@ -1,19 +1,14 @@
 package com.ekanking.ebankingbackend.entities;
 
 import com.ekanking.ebankingbackend.enums.AccountStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+@Setter @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BankAccount {
@@ -23,6 +18,10 @@ public class BankAccount {
     private double balance;
     private Date createAt;
     private AccountStatus status;
+
+    @ManyToOne
     private Customer customer;
+
+    @OneToMany(mappedBy = "bankAccount")
     private List<AccountOperation> accountOperations;
 }
